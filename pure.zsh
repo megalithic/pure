@@ -125,7 +125,17 @@ prompt_pure_preprompt_render() {
 	local -a preprompt_parts
 
 	# Set the path.
-	preprompt_parts+=('%F{blue}%~%f')
+  if (( ${PURE_TRUNCATE_CWD:-1} )); then
+    local pwd="${PWD/#$HOME/~}"
+    if [[ "$pwd" == (#m)[/~] ]]; then
+      # echo "$MATCH"
+      # unset MATCH
+    else
+      preprompt_parts+=("${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}")
+    fi
+  else
+    preprompt_parts+=('%F{blue}%~%f')
+  fi
 
 	# Add git branch and dirty status info.
 	typeset -gA prompt_pure_vcs_info

@@ -90,6 +90,7 @@ prompt pure
 | **`PURE_PROMPT_SYMBOL`**         | Defines the prompt symbol.                                                                     | `❯`            |
 | **`PURE_GIT_DOWN_ARROW`**        | Defines the git down arrow symbol.                                                             | `⇣`            |
 | **`PURE_GIT_UP_ARROW`**          | Defines the git up arrow symbol.                                                               | `⇡`            |
+| **`PURE_TRUNCATE_CWD=1`**    | Determines whether we should truncate the `cwd`.                                                   |                |
 
 ## Example
 
